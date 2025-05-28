@@ -31,18 +31,22 @@ public class Main {
 
             switch (pilihan) {
                 case 1:
-                System.out.print("Input Nama Pasien : ");
-                String nama=sc.nextLine();
-                System.out.print("NIK               : ");
-                String nik=sc.nextLine();
-                System.out.print("Keluhan           : ");
-                String keluhan=sc.nextLine();
+                    System.out.print("Input Nama Pasien : ");
+                    String nama=sc.nextLine();
+                    System.out.print("NIK               : ");
+                    String nik=sc.nextLine();
+                    System.out.print("Keluhan           : ");
+                    String keluhan=sc.nextLine();
                     pasien = new Pasien(nama, nik , keluhan);
                     break;
                 case 2:
                     break;
                 case 3:
-                    
+                    dll.addDokterMain(d1);
+                    dll.addDokterMain(d2);
+                    dll.addDokterMain(d3);
+                    dll.addDokterMain(d4);
+                    dll.tampilDokter();
                     break;
                 case 4:
                     break;

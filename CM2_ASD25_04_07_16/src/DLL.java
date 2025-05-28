@@ -39,6 +39,7 @@ public class DLL {
             System.out.println("Data Pasien kosong");
         } else{
             NodePasien temp= headPasien;
+            System.out.println("--- Antrian Pasien ---");
             while (temp != null) {
                 temp.data.tampilData();
                 temp=temp.next;
@@ -82,14 +83,10 @@ public class DLL {
     }
 
     public void tampilDokter(){
-        if (isEmpty()) {
-            System.out.println("Data Pasien kosong");
-        } else{
-            NodeDokter temp= headDokter;
-            while (temp != null) {
-                temp.data.tampilDataDokter();
-                temp=temp.next;
-            }
+        NodeDokter temp= headDokter;
+        while (temp != null) {
+            temp.data.tampilDataDokter();
+            temp=temp.next;
         }
     }
 
@@ -106,7 +103,7 @@ public class DLL {
 
     public void tampilTransaksi(){
         if (isEmpty()) {
-            System.out.println("Data Pasien kosong");
+            System.out.println("Data Transaksi kosong");
         } else{
             NodeTransaksi temp= headTransaksi;
             while (temp != null) {
