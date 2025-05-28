@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int pilihan;
-        TransaksiLayanan trs= new TransaksiLayanan();
+        TransaksiLayanan trs = new TransaksiLayanan();
         Pasien pasien;
         Dokter dr = new Dokter();
         DLL dll = new DLL();
@@ -13,7 +13,6 @@ public class Main {
         Dokter d2 = new Dokter("dr02", "Santi Runica");
         Dokter d3 = new Dokter("dr03", "Aam Antica");
         Dokter d4 = new Dokter("dr04", "Slamet Sugito");
-
 
         do {
             System.out.println("Sistem Antrian Klinik");
@@ -32,14 +31,16 @@ public class Main {
             switch (pilihan) {
                 case 1:
                     System.out.print("Input Nama Pasien : ");
-                    String nama=sc.nextLine();
+                    String nama = sc.nextLine();
                     System.out.print("NIK               : ");
-                    String nik=sc.nextLine();
+                    String nik = sc.nextLine();
                     System.out.print("Keluhan           : ");
-                    String keluhan=sc.nextLine();
-                    pasien = new Pasien(nama, nik , keluhan);
+                    String keluhan = sc.nextLine();
+                    pasien = new Pasien(nama, nik, keluhan);
+                    dll.addLast(pasien);
                     break;
                 case 2:
+                    dll.tampil();
                     break;
                 case 3:
                     dll.addDokterMain(d1);
@@ -47,6 +48,8 @@ public class Main {
                     dll.addDokterMain(d3);
                     dll.addDokterMain(d4);
                     dll.tampilDokter();
+                    dll.removeFirst();
+                    System.out.println("Pasien telah dilayani.");
                     break;
                 case 4:
                     break;
@@ -55,7 +58,7 @@ public class Main {
                 case 6:
                     break;
                 default:
-                System.out.println("Pilihan Menu tidak Tersedia");
+                    System.out.println("Pilihan Menu tidak Tersedia");
                     break;
             }
         } while (pilihan != 0);
