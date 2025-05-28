@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int pilihan;
-        TransaksiLayanan trs = new TransaksiLayanan();
+        TransaksiLayanan transaksi = new TransaksiLayanan();
         Pasien pasien;
         Dokter dr = new Dokter();
         DLL dll = new DLL();
@@ -49,21 +49,16 @@ public class Main {
                     dll.tampil();
                     break;
                 case 3:
-                    dll.addDokterMain(d1);
-                    dll.addDokterMain(d2);
-                    dll.addDokterMain(d3);
-                    dll.addDokterMain(d4);
-                    dll.tampilDokter();
-                    dll.removeFirst();
-                    System.out.println("Pasien telah dilayani.");
+                    dll.layaniPasien();
                     break;
                 case 4:
                     System.out.println("Sisa antrian pasien: " + dll.size);
                     break;
-
                 case 5:
+                    dll.tampilTransaksi();
                     break;
                 case 6:
+                    dll.sortTransaksiByNamaPasien();
                     break;
                 default:
                     System.out.println("Pilihan Menu tidak Tersedia");
