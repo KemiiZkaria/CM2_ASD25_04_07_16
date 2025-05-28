@@ -14,6 +14,11 @@ public class Main {
         Dokter d3 = new Dokter("dr03", "Aam Antica");
         Dokter d4 = new Dokter("dr04", "Slamet Sugito");
 
+        dll.addDokterMain(d1);
+        dll.addDokterMain(d2);
+        dll.addDokterMain(d3);
+        dll.addDokterMain(d4);
+
         do {
             System.out.println("Sistem Antrian Klinik");
             System.out.println("1. Tambah Pasien ke Antrian");
