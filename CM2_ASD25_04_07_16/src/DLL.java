@@ -6,10 +6,14 @@ public class DLL {
     NodeTransaksi headTransaksi, TailTransaksi;
     Pasien pasien;
     Dokter dokter;
-    int durasiLayanan, biaya, size;
+    int size;
 
     public boolean isEmpty() {
         return headPasien == null;
+    }
+
+    public boolean isTransaksiEmpty() {
+        return headTransaksi == null;
     }
 
     public void addLast(Pasien input) {
@@ -44,6 +48,7 @@ public class DLL {
         } else {
             NodePasien temp = headPasien;
             System.out.println("--- Antrian Pasien ---");
+            System.out.println("Nama\tNik\tKeluhan");
             while (temp != null) {
                 temp.data.tampilData();
                 temp = temp.next;
@@ -88,6 +93,7 @@ public class DLL {
 
     public void tampilDokter() {
         NodeDokter temp = headDokter;
+        System.out.println("Kode\tNama");
         while (temp != null) {
             temp.data.tampilDataDokter();
             temp = temp.next;
@@ -106,10 +112,12 @@ public class DLL {
     }
 
     public void tampilTransaksi() {
-        if (isEmpty()) {
+        if (isTransaksiEmpty()) {
             System.out.println("Data Transaksi kosong");
+            return;
         } else {
             NodeTransaksi temp = headTransaksi;
+            System.out.println("Nama\tNama Dokter\tDurasi\tTotal");
             while (temp != null) {
                 temp.data.tampilDataTransaksi();
                 temp = temp.next;
@@ -118,38 +126,48 @@ public class DLL {
     }
 
     public void layaniPasien() {
-        if (isEmpty()) {
-            System.out.println("Antrian kosong.");
-            return;
-        }
-
-        tampilDokter();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Pilih ID Dokter untuk melayani: ");
-        String id = sc.nextLine();
-
-        NodeDokter current = headDokter;
-        Dokter dokterTerpilih = null;
-        while (current != null) {
-            if (current.data.idDokter.equalsIgnoreCase(id)) {
-                dokterTerpilih = current.data;
-                break;
-            }
-            current = current.next;
-        }
-
-        if (dokterTerpilih == null) {
-            System.out.println("Dokter tidak ditemukan.");
-            return;
-        }
-
-        Pasien pasienDilayani = headPasien.data;
-        TransaksiLayanan transaksi = new TransaksiLayanan(pasienDilayani, dokterTerpilih);
-        addTransaksi(transaksi);
-
-        removeFirst();
-        System.out.println("Pasien telah dilayani oleh " + dokterTerpilih.nama);
+    if (isEmpty()) {
+        System.out.println("Antrian kosong.");
+        return;
     }
+
+    tampilDokter();
+
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Pilih ID Dokter untuk melayani: ");
+    String id = sc.nextLine();
+
+    NodeDokter current = headDokter;
+    Dokter dokterTerpilih = null;
+    while (current != null) {
+        if (current.data.idDokter.equalsIgnoreCase(id)) {
+            dokterTerpilih = current.data;
+            break;
+        }
+        current = current.next;
+    }
+
+    if (dokterTerpilih == null) {
+        System.out.println("Dokter tidak ditemukan.");
+        return;
+    }
+
+    System.out.print("Input durasi layanan (menit): ");
+    int durasi = sc.nextInt();
+    sc.nextLine();
+
+    Pasien pasienDilayani = headPasien.data;
+
+    TransaksiLayanan transaksi = new TransaksiLayanan(pasienDilayani, dokterTerpilih, durasi);
+    transaksi.hitungBiaya();
+
+    addTransaksi(transaksi);
+    removeFirst();
+
+    System.out.println("Pasien telah dilayani oleh " + dokterTerpilih.nama);
+    System.out.println("Durasi: " + durasi + " menit | Total biaya: Rp " + transaksi.biaya);
+}
+
 
     public void sortTransaksiByNamaPasien() {
         if (headTransaksi == null) {

@@ -11,6 +11,6 @@ public class Dokter {
     }
 
     void tampilDataDokter() {
-        System.out.println(idDokter + nama);
+        System.out.println(idDokter + "\t" + nama);
     }
 }

@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int pilihan;
-        TransaksiLayanan transaksi = new TransaksiLayanan();
         Pasien pasien;
         Dokter dr = new Dokter();
         DLL dll = new DLL();
@@ -20,7 +19,7 @@ public class Main {
         dll.addDokterMain(d4);
 
         do {
-            System.out.println("Sistem Antrian Klinik");
+            System.out.println("\nSistem Antrian Klinik");
             System.out.println("1. Tambah Pasien ke Antrian");
             System.out.println("2. Lihat Antrian");
             System.out.println("3. Layani Pasien");
