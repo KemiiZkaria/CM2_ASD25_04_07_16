@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DLL {
     NodePasien headPasien, TailPasien;
     NodeDokter headDokter, TailDokter;
@@ -112,4 +114,39 @@ public class DLL {
             }
         }
     }
+
+    public void layaniPasien() {
+    if (isEmpty()) {
+        System.out.println("Antrian kosong.");
+        return;
+    }
+
+    tampilDokter();
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Pilih ID Dokter untuk melayani: ");
+    String id = sc.nextLine();
+
+    NodeDokter current = headDokter;
+    Dokter dokterTerpilih = null;
+    while (current != null) {
+        if (current.data.idDokter.equalsIgnoreCase(id)) {
+            dokterTerpilih = current.data;
+            break;
+        }
+        current = current.next;
+    }
+
+    if (dokterTerpilih == null) {
+        System.out.println("Dokter tidak ditemukan.");
+        return;
+    }
+
+    Pasien pasienDilayani = headPasien.data;
+    TransaksiLayanan transaksi = new TransaksiLayanan(pasienDilayani, dokterTerpilih);
+    addTransaksi(transaksi);
+
+    removeFirst();
+    System.out.println("Pasien telah dilayani oleh " + dokterTerpilih.nama);
+}
+
 }
