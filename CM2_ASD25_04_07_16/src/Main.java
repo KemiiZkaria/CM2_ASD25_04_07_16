@@ -6,6 +6,14 @@ public class Main {
         int pilihan;
         TransaksiLayanan trs= new TransaksiLayanan();
         Pasien pasien;
+        Dokter dr = new Dokter();
+        DLL dll = new DLL();
+
+        Dokter d1 = new Dokter("dr01", "Wike Ratanca");
+        Dokter d2 = new Dokter("dr02", "Santi Runica");
+        Dokter d3 = new Dokter("dr03", "Aam Antica");
+        Dokter d4 = new Dokter("dr04", "Slamet Sugito");
+
 
         do {
             System.out.println("Sistem Antrian Klinik");
@@ -34,6 +42,7 @@ public class Main {
                 case 2:
                     break;
                 case 3:
+                    
                     break;
                 case 4:
                     break;
