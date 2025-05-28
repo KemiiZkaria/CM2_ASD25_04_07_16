@@ -3,8 +3,8 @@ public class NodeDokter {
     NodeDokter next, prev;
 
     public NodeDokter(NodeDokter prev, Dokter data, NodeDokter next) {
-        this.next = null;
-        this.prev = null;
+        this.prev = prev;
         this.data = data;
+        this.next = next;
     }
 }

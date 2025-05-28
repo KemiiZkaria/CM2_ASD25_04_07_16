@@ -3,8 +3,8 @@ public class NodePasien {
     NodePasien next, prev;
 
     public NodePasien(NodePasien prev, Pasien data, NodePasien next) {
-        this.next = null;
-        this.prev = null;
+        this.prev = prev;
         this.data = data;
+        this.next = next;
     }
 }

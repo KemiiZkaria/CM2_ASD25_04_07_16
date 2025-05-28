@@ -47,9 +47,9 @@ public class DLL {
         }
     }
 
-     public void sortingJenisAbjadDSC(){
+     public void sortPasienNamaDesc(){
         if (isEmpty()) {
-            System.out.println("Data hewan kosong");
+            System.out.println("Data pasien kosong");
         } else if (headPasien == TailPasien) {
             headPasien.data.tampilData();
         } else {

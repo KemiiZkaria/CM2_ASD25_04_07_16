@@ -38,6 +38,7 @@ public class Main {
                     String keluhan = sc.nextLine();
                     pasien = new Pasien(nama, nik, keluhan);
                     dll.addLast(pasien);
+                    System.out.println("Pasien berhasil ditambahkan ke antrian.");
                     break;
                 case 2:
                     dll.tampil();
@@ -52,7 +53,9 @@ public class Main {
                     System.out.println("Pasien telah dilayani.");
                     break;
                 case 4:
+                    System.out.println("Sisa antrian pasien: " + dll.size);
                     break;
+
                 case 5:
                     break;
                 case 6:
