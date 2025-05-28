@@ -57,7 +57,10 @@ public class Main {
                     dll.tampilTransaksi();
                     break;
                 case 6:
-                    dll.sortTransaksiByNamaPasien();
+                    dll.sortPasienNamaDesc();
+                    break;
+                case 0:
+                    System.out.println("Program Dihentikan");
                     break;
                 default:
                     System.out.println("Pilihan Menu tidak Tersedia");
