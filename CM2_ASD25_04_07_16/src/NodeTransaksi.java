@@ -3,8 +3,8 @@ public class NodeTransaksi {
     NodeTransaksi next, prev;
 
     public NodeTransaksi(NodeTransaksi prev, TransaksiLayanan data, NodeTransaksi next) {
-        this.next = null;
-        this.prev = null;
+        this.next = next;
+        this.prev = prev;
         this.data = data;
     }
 }
